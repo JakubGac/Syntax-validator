@@ -8,5 +8,10 @@
 
 import Foundation
 
-print("Hello, World!")
+let walidator = Walidator()
 
+if CommandLine.argc < 2 {
+    ConsoleIO.printInfo()
+} else {
+    walidator.staticMode()
+}
