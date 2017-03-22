@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Walidator {
+class Menu {
     let consoleIO = ConsoleIO()
     
     func staticMode() {
@@ -18,8 +18,8 @@ class Walidator {
         switch option {
         case .interactive:
             interactiveMode()
-        case .counting:
-            print("Cos tam sobie liczę")
+        case .fileName:
+            checkAndReadFile()
         case .help:
             print("Witam w pomocy dla programu Analizator leksykalny")
         case .unknown:
@@ -34,6 +34,7 @@ class Walidator {
     private func interactiveMode() {
         consoleIO.writeMessage("Witaj w trybie interaktywnym. Możesz dowolnie używać następujących opcji:")
         print("a -> tryb liczenia")
+        print("f -> wywołanie z nazwą pliku do sprawdzenia")
         print("q -> zakończenie działania programu")
         
         var shouldQuit = false
@@ -41,14 +42,42 @@ class Walidator {
             let (option, _) = consoleIO.getOption(option: consoleIO.getInput())
             
             switch option {
-            case .counting:
-                print("Cos tam sobie liczę")
+            case .fileName:
+                checkAndReadFile()
             case .quit:
                 shouldQuit = true
                 consoleIO.writeMessage("Kończę działanie")
             default:
                 consoleIO.writeMessage("Błąd. Nie znam takiej opcji wywołania", to: .error)
                 consoleIO.writeMessage("Podaj inna wartosc")
+            }
+        }
+    }
+    
+    private func checkAndReadFile() {
+        if CommandLine.arguments.count < 3 {
+            consoleIO.writeMessage("Brak nazwy pliku", to: .error)
+            consoleIO.writeMessage("Sróbuj ponownie")
+        } else if CommandLine.arguments.count > 3 {
+            consoleIO.writeMessage("Za dużo argumentów wywołania", to: .error)
+            consoleIO.writeMessage("Sróbuj ponownie")
+        } else {
+            do {
+                let documentDirectoryURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                let fileDestinationURL = documentDirectoryURL.appendingPathComponent(CommandLine.arguments[2])
+                do {
+                    let readedText = try String(contentsOf: fileDestinationURL)
+                    let validator = Validator(readedText: readedText)
+                    validator.startValidation()
+                } catch let error as NSError {
+                    consoleIO.writeMessage("Błąd w trakcie odczytu pliku", to: .error)
+                    consoleIO.writeMessage(error.localizedDescription, to: .error)
+                    consoleIO.writeMessage("Kończę działanie")
+                }
+            } catch let error as NSError {
+                consoleIO.writeMessage("Błąd w trakcie odczytu katalogu", to: .error)
+                consoleIO.writeMessage(error.localizedDescription, to: .error)
+                consoleIO.writeMessage("Kończę działanie")
             }
         }
     }

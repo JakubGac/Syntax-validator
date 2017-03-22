@@ -8,10 +8,10 @@
 
 import Foundation
 
-let walidator = Walidator()
+let menu = Menu()
 
 if CommandLine.argc < 2 {
     ConsoleIO.printInfo()
 } else {
-    walidator.staticMode()
+    menu.staticMode()
 }

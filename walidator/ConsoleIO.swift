@@ -12,14 +12,14 @@ enum OptionType: String {
     case help = "h"
     case quit = "q"
     case interactive = "i"
-    case counting = "a"
+    case fileName = "f"
     case unknown
     
     init(value: String) {
         switch value {
         case "h": self = .help
         case "i": self = .interactive
-        case "a": self = .counting
+        case "f": self = .fileName
         case "q": self = .quit
         default: self = .unknown
         }
@@ -39,7 +39,7 @@ class ConsoleIO {
         print("Brak argumentów wywołania.")
         print("Dostępne wywołania programu:")
         print(" \(executableName) -i -> tryb interaktywny")
-        print(" \(executableName) -a -> obliczenie czegoś")
+        print(" \(executableName) -f -> wywołanie z nazwą pliku do sprawdzenia")
         print(" \(executableName) -h -> informacje o programie")
     }
     
