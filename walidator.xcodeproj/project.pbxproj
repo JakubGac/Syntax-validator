@@ -12,6 +12,7 @@
 		275E53D51E682F4200A4074D /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E53D41E682F4200A4074D /* Menu.swift */; };
 		277BE66B1E7FE895000813B5 /* Dictionaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277BE66A1E7FE895000813B5 /* Dictionaries.swift */; };
 		277BE66D1E7FECAE000813B5 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277BE66C1E7FECAE000813B5 /* Validator.swift */; };
+		279676CB1E8305930025F615 /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279676CA1E8305930025F615 /* Lexer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,8 +34,7 @@
 		275E53D41E682F4200A4074D /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		277BE66A1E7FE895000813B5 /* Dictionaries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionaries.swift; sourceTree = "<group>"; };
 		277BE66C1E7FECAE000813B5 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
-		277BE66E1E7FF390000813B5 /* a.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = a.txt; sourceTree = "<group>"; };
-		277BE66F1E7FF390000813B5 /* plik.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = plik.txt; sourceTree = "<group>"; };
+		279676CA1E8305930025F615 /* Lexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lexer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +53,6 @@
 			children = (
 				275E53CA1E682F1F00A4074D /* walidator */,
 				275E53C91E682F1F00A4074D /* Products */,
-				277BE66E1E7FF390000813B5 /* a.txt */,
-				277BE66F1E7FF390000813B5 /* plik.txt */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +72,7 @@
 				275E53D41E682F4200A4074D /* Menu.swift */,
 				277BE66A1E7FE895000813B5 /* Dictionaries.swift */,
 				277BE66C1E7FECAE000813B5 /* Validator.swift */,
+				279676CA1E8305930025F615 /* Lexer.swift */,
 			);
 			path = walidator;
 			sourceTree = "<group>";
@@ -141,6 +140,7 @@
 				277BE66B1E7FE895000813B5 /* Dictionaries.swift in Sources */,
 				277BE66D1E7FECAE000813B5 /* Validator.swift in Sources */,
 				275E53D51E682F4200A4074D /* Menu.swift in Sources */,
+				279676CB1E8305930025F615 /* Lexer.swift in Sources */,
 				275E53D31E682F2800A4074D /* ConsoleIO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,8 +16,9 @@ class Validator {
     }
     
     func startValidation() {
-        
-        
+        // analiza leksykalna
+        let lexer = Lexer(text: textToCheck)
+        lexer.scan()
         
     }
 }
