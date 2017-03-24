@@ -20,7 +20,7 @@ class Lexer {
         // moving each element from string to array of tuples (terminalSymbol, String)
         moveToArray()
         
-        
+        //test()
         // potem zaczynamy przeszukiwania od symboli specjalnych
         // potem przeszukujemy słowa i dopasowujemy do gramatyk
         // na koniec usuwamy znaki \t \n \r ""
@@ -36,6 +36,19 @@ class Lexer {
     }
     
     
+    
+    private func test() {
+        let digitSet = CharacterSet.decimalDigits
+        for item in createdTerminalSymbols {
+            for character in item.1.unicodeScalars {
+                if digitSet.contains(character) {
+                    print("\(item.1) to liczba")
+                } else {
+                    print("\(item.1) to nie liczba")
+                }
+            }
+        }
+    }
     
     private func cleanText() {
         for character in textToScan.characters {
