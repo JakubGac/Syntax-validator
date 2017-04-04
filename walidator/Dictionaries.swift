@@ -14,22 +14,24 @@ struct grammarOfTerminalSymbols {
     static let assign = ":"
     static let variableName = "[a-z-]+"
     static let color = "#[a-z0-9]+"
-    static let number = "[0.9]+.[0.9]+"
+    static let number = "[0-9.]+"
     static let string = "[a-z]+"
     static let percent = "[0-9]+%"
-    static let openBracket = "("
-    static let closeBracket = ")"
+    static let openBracket = "\\("
+    static let closeBracket = "\\)"
     static let comma = ","
-    static let dot = "."
-    static let openBuckle = "{"
-    static let closeBuckle = "}"
-    static let commentContent = "[a-zA-z0-9,./<>?;’:”|[]{}!\\@#$%^&*()_+-=]+"
+    static let dot = "\\."
+    static let openBuckle = "\\{"
+    static let closeBuckle = "\\}"
+    // commentContent = "[a-zA-Z0-9,./<>?;’:”|[]{}!\\@#$%^&*()_+-=]+"
+    static let commentContent = "[a-zA-Z0-9`% !]+"
     static let plainComment = "//"
-    static let commentBegginng = "/*"
-    static let commentEnding = "*\\"
+    static let commentBeginning = "\\/\\*"
+    static let commentEnding = "\\*."
+    static let test = ""
 }
 
-enum terminalSymbols {
+enum terminalSymbol {
     case semicolon
     case at
     case assign
@@ -47,6 +49,8 @@ enum terminalSymbols {
     case commentContent
     case commentBeginning
     case commentEnding
+    case plainComment
     case unknown
     case indefinite
+    case test
 }
