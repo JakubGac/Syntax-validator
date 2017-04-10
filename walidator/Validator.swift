@@ -19,23 +19,9 @@ class Validator {
         // lexer
         let lexer = Lexer(text: textToCheck)
         lexer.scan()
-        
-        //for item in lexer.getTerminalSymbols() {
-        //    print("\(item.0) - \(item.1)")
-        //}
-        
+                
         // parser
         let parser = Parser(createdTerminalSymbols: lexer.getTerminalSymbols())
-        var nodes = [Any]()
-        do {
-            nodes = try parser.parseExpression()
-        }
-        catch {
-            print(error)
-        }
-        for item in nodes {
-            print(item)
-            print()
-        }
+        parser.parseExpression()
     }
 }
