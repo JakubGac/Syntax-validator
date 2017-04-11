@@ -59,6 +59,11 @@ class Parser {
             if let value = parseValue() {
                 if let openBuckle = parseOpenBuckle() {
                     if let variables = parseVariables() {
+                        while peekCurrentToken().0 != terminalSymbol.closeBuckle {
+                            if parseVariables() == nil {
+                                return nil
+                            }
+                        }
                         if let closeBuckle = parseCloseBuckle() {
                             return VariableNode(at: nil, firstValue: value, assign: nil, secondValue: nil, function: nil, dot: dot, openBuckle: openBuckle, variables: variables, closeBuckle: closeBuckle)
                         } else {

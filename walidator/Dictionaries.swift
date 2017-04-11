@@ -23,7 +23,6 @@ struct grammarOfTerminalSymbols {
     static let dot = "\\."
     static let openBuckle = "\\{"
     static let closeBuckle = "\\}"
-    // commentContent = "[a-zA-Z0-9,./<>?;’:”|[]{}!\\@#$%^&*()_+-=]+"
     static let commentContent = "[a-zA-Z0-9`% !]+"
     static let plainComment = "//"
     static let commentBeginning = "\\/\\*"
